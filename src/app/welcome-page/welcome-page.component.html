@@ -1,0 +1,26 @@
+<div class="container bg-light py-5">
+  <h1 class="display-5 fw-bold">Welcome to Online Test</h1>
+  <p class="col-md-8 fs-4">
+    This test contains 9 questions. Each questions carries 2 marks.
+  </p>
+  <h4 class="introduction">Introduction:</h4>
+  <ul>
+    <li class="">Correct answer 2 marks</li>
+    <li class="">If the time is up you loose 10 marks</li>
+    <li class="">Time alloted : 60 seconds for each questions.</li>
+    <li class="">DO NOT refresh the page.</li>
+  </ul>
+  <h2 class="allthe">All the Best!!</h2>
+  <div class="name col-md-4 my-3">
+    <label for="">Add your name:</label>
+    <input #name type="text" name="" class="form-control" />
+  </div>
+  <button
+    type="button"
+    class="btn btn-success btn-lg"
+    routerLink="/question"
+    (click)="startTest()"
+  >
+    Start the Test
+  </button>
+</div>
