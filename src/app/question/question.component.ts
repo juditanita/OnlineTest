@@ -1,6 +1,7 @@
 import { QuestionService } from './../service/question.service';
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-question',
@@ -16,8 +17,14 @@ export class QuestionComponent implements OnInit {
   currectAnswer: number = 0;
   incurrectAnswer: number = 0;
   intervable$: any;
-  progress: string = '0';
-  constructor(private questionService: QuestionService) {}
+  progress: number = 0;
+  msg: string = '';
+  isCompleted: boolean = false;
+  isPassed: boolean = false;
+  constructor(
+    private questionService: QuestionService,
+    public router: Router
+  ) {}
 
   ngOnInit(): void {
     this.name = localStorage.getItem('name')!;
@@ -36,15 +43,20 @@ export class QuestionComponent implements OnInit {
   previousQuestion() {
     this.currentQuestion--;
   }
-  answer(currentQs: number, option: any) {
+  answer(currentQnumbs: number, option: any) {
+    if (currentQnumbs === this.questionList.length) {
+      this.stopCounter();
+      this.isCompleted = true;
+    }
     if (option.correct) {
       this.points += 10;
       this.currectAnswer++;
       this.currentQuestion++;
-      this.getProgressBar();
+      this.getProgressPercent();
     } else {
       this.incurrectAnswer++;
       this.currentQuestion++;
+      this.getProgressPercent();
     }
   }
   startCounter() {
@@ -60,7 +72,7 @@ export class QuestionComponent implements OnInit {
       this.intervable$.unsubscribe();
     }, 600000);
   }
-  stopCounter() {
+  stopCounter(): void {
     this.intervable$.unsubscribe();
     this.counter = 0;
   }
@@ -69,11 +81,18 @@ export class QuestionComponent implements OnInit {
     this.counter = 60;
     this.startCounter();
   }
-  getProgressBar() {
-    this.progress = (
-      (this.currentQuestion / this.questionList.lenght) *
-      100
-    ).toString();
-    return this.progress;
+
+  getProgressPercent() {
+    this.progress = (this.currectAnswer / this.questionList.length) * 100;
+    if (this.progress < 60) {
+      this.msg =
+        'You did not reach the required level to pass the test. Better score next time';
+    } else {
+      this.isPassed = true;
+      this.msg = 'You have scored over 60%';
+    }
+  }
+  startover() {
+    this.router.navigate(['welcome-page']);
   }
 }

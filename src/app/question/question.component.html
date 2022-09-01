@@ -10,65 +10,92 @@
         <span>Welcome {{ name }}!</span>
       </div>
     </div>
-    <div class="d-flex justify-content-around py-3">
-      <div class="score">
-        <h5>{{ points }} Points</h5>
+    <ng-container *ngIf="!isCompleted">
+      <div class="d-flex justify-content-around py-3">
+        <div class="question-remaining">
+          <span style="font-style: italic"
+            >Question {{ currentQuestion + 1 }} of
+            {{ questionList.length }}</span
+          >
+        </div>
+        <div class="timer">
+          <h5 style="font-style: italic">
+            {{ counter }} sec <i class="fa fa-clock-o" aria-hidden="true"></i>
+          </h5>
+        </div>
       </div>
-      <div class="question-remaining">
-        <span style="font-style: italic"
-          >Question {{ currentQuestion + 1 }} of {{ questionList.length }}</span
+      <div class="progress mb-3"></div>
+      <div class="question">
+        <div class="card">
+          <h4>{{ questionList[currentQuestion]?.questionText }}</h4>
+        </div>
+      </div>
+      <div class="options">
+        <ol *ngFor="let option of questionList[currentQuestion]?.options">
+          <li (click)="answer(currentQuestion + 1, option)">
+            <div class="card">
+              {{ option.text }}
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="d-flex justify-content-between">
+        <button
+          [disabled]="currentQuestion < 1"
+          class="btn"
+          (click)="previousQuestion()"
         >
+          <i
+            class="fa text-success fa-chevron-left fa-2x"
+            aria-hidden="true"
+          ></i>
+        </button>
+        <span></span>
+        <button
+          [disabled]="currentQuestion > 9"
+          class="btn"
+          (click)="nextQuestion()"
+        >
+          <i
+            class="fa text-success fa-chevron-right fa-2x"
+            aria-hidden="true"
+          ></i>
+        </button>
       </div>
-      <div class="timer">
-        <h5 style="font-style: italic">
-          {{ counter }} sec <i class="fa fa-clock-o" aria-hidden="true"></i>
-        </h5>
-      </div>
-    </div>
-    <div class="progress mb-3">
-      <div
-        [ngStyle]="{ 'width.px': progress + '%' }"
-        class="progress-bar progress-bar-striped bg-success"
-        role="progressbar"
-        aria-label="Success striped example"
-        aria-valuenow="25"
-        aria-valuemin="0"
-        aria-valuemax="100"
-      ></div>
-    </div>
-    <div class="question">
-      <div class="card">
-        <h3>{{ questionList[currentQuestion]?.questionText }}</h3>
-      </div>
-    </div>
-    <div class="options">
-      <ol *ngFor="let option of questionList[currentQuestion]?.options">
-        <li (click)="answer(currentQuestion + 1, option)">
-          <div appChangeBackg [isCorrect]="option.correct" class="card">
-            {{ option.text }}
-          </div>
-        </li>
-      </ol>
-    </div>
-    <div class="d-flex justify-content-between">
-      <button
-        [disabled]="currentQuestion < 1"
-        class="btn"
-        (click)="previousQuestion()"
-      >
-        <i class="fa text-success fa-chevron-left fa-2x" aria-hidden="true"></i>
-      </button>
+    </ng-container>
+    <ng-container *ngIf="isCompleted">
+      <div class="card text-center">
+        <div class="card-header"><h3>Result</h3></div>
+        <div class="card-body">
+          <h2>Congratulation, you have completed the test.</h2>
+          <ng-container *ngIf="isPassed">
+            <h2 class="card-text passed">{{ msg }}</h2>
+            <i class="fa-regular fa-trophy-star"></i>
+          </ng-container>
+          <ng-container *ngIf="!isPassed">
+            <h2 class="card-text notpass">{{ msg }}</h2>
+          </ng-container>
+          <a
+            routerLink="welcome-page"
+            class="btn btn-success"
+            value="startover()"
+            (click)="startover()"
+            >Start over</a
+          >
 
-      <button
-        [disabled]="currentQuestion === 10"
-        class="btn"
-        (click)="nextQuestion()"
-      >
-        <i
-          class="fa text-success fa-chevron-right fa-2x"
-          aria-hidden="true"
-        ></i>
-      </button>
-    </div>
+          <router-outlet></router-outlet>
+        </div>
+        <div class="card-footer text-muted">
+          <div class="d-flex justify-content-around py-3">
+            <div class="score">
+              <h5>Total points: {{ points }}</h5>
+            </div>
+          </div>
+          <div class="score">
+            <h5>Total correct answer: {{ currectAnswer }}</h5>
+          </div>
+        </div>
+      </div>
+    </ng-container>
   </div>
 </div>

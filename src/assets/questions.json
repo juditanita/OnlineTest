@@ -1,175 +1,154 @@
 {
   "questions": [
     {
-      "questionText": "Which of the following does TypeScript use to specify types?",
+      "questionText": "There are 5 coffee-box on the desk. Each boxes contains at least 10 sticks of coffee, but not more than 14 coffee. Which of the following could be the total number of pencils in all 5 boxes?",
       "options": [
         {
-          "text": ":",
+          "text": "65 ",
           "correct": true
         },
         {
-          "text": ";"
+          "text": "20"
         },
         {
-          "text": "!"
-        },
-        {
-          "text": "&"
+          "text": "Starbucks"
         }
       ],
-      "explanation": "TS uses a colon (:) to separate the property name from the property type"
+      "explanation": ""
     },
     {
-      "questionText": "Which of the following is NOT a type used in TypeScript?",
+      "questionText": "A bird traveled 72 miles in 6 hours flying at constant speed. At this rate, how many miles did the bird travel in 5 hours?",
       "options": [
         {
-          "text": "number"
+          "text": "50"
         },
         {
-          "text": "string"
-        },
-        {
-          "text": "boolean"
-        },
-        {
-          "text": "enum",
+          "text": "60",
           "correct": true
+        },
+        {
+          "text": "Birds flying high."
         }
       ],
-      "explanation": "enum is not used as a type in TypeScript"
+      "explanation": ""
     },
     {
-      "questionText": "How can we specify properties and methods for an object in TypeScript?",
+      "questionText": "Three kids own a total of 96 comic books. If one of the kids owns 16 of the comic books, what is the average (arithmetic mean) number of comic books owned by the other two kids?",
       "options": [
         {
-          "text": "Use classes."
+          "text": "12"
         },
         {
-          "text": "Use interfaces.",
+          "text": "40",
           "correct": true
         },
+
         {
-          "text": "Use enums."
-        },
-        {
-          "text": "Use async/await."
+          "text": "54"
         }
       ],
-      "explanation": "interfaces are typically used to list the properties and methods for an object"
+      "explanation": ""
     },
     {
-      "questionText": "How else can Array<number> be written in TypeScript?",
+      "questionText": "The sum of two positive integers is 13. The difference between these numbers is 7. What is their product?",
       "options": [
         {
-          "text": "@number"
+          "text": "20"
         },
         {
-          "text": "number[]",
+          "text": "30",
           "correct": true
         },
         {
-          "text": "number!"
-        },
-        {
-          "text": "number?"
+          "text": "6."
         }
       ],
-      "explanation": "number[] is another way of writing Array<number> in TypeScript"
+      "explanation": ""
     },
     {
-      "questionText": "In which of these does a class take parameters?",
+      "questionText": "Approximately 4 out of every 25,000 males has a genetic mutation resulting in hemophilia. Approximately how many male Americans would be expected to have this genetic mutation if the current male population of America is 163 million?",
       "options": [
         {
-          "text": "constructor",
+          "text": "26,000",
           "correct": true
         },
         {
-          "text": "destructor"
+          "text": "260,000"
         },
+
         {
-          "text": "import"
-        },
-        {
-          "text": "subscribe"
+          "text": "2600"
         }
       ],
-      "explanation": "a constructor is used by a class to take in parameters"
+      "explanation": ""
     },
     {
-      "questionText": "Which is NOT an access modifier?",
+      "questionText": "f x is 6 less than y, and y is twice of z, what is the value of x when z=2?",
       "options": [
         {
-          "text": "private"
+          "text": "0"
         },
         {
-          "text": "protected"
-        },
-        {
-          "text": "public"
-        },
-        {
-          "text": "async",
+          "text": "-2",
           "correct": true
+        },
+
+        {
+          "text": "6"
         }
       ],
-      "explanation": "async is not used as an access modifier type in TypeScript"
+      "explanation": ""
     },
     {
-      "questionText": "Which keyword allows us to share information between files in TypeScript?",
+      "questionText": "The vertex of a parabolic function is located at (5,−4). One of its zeros (x-intercepts) occurs at xx = 7. Where will its other zero (x-intercept) be located?",
       "options": [
         {
-          "text": "import"
+          "text": "1"
         },
         {
-          "text": "export",
+          "text": "3",
           "correct": true
         },
+
         {
-          "text": "async"
-        },
-        {
-          "text": "constructor"
+          "text": "(0,-4)"
         }
       ],
-      "explanation": "the export keyword allows for the information to be transmitted between files"
+      "explanation": ""
     },
     {
-      "questionText": "Which is an array method to generate a new array based on a condition?",
+      "questionText": "A “Triangle” is any positive integer greater than 1 that has only three positive integer factors: itself, its square root, and 1. Which of the following is a Triangle?",
       "options": [
         {
-          "text": "filter",
+          "text": "169",
           "correct": true
         },
         {
-          "text": "map"
+          "text": "161"
         },
+
         {
-          "text": "async"
-        },
-        {
-          "text": "enum"
+          "text": "180"
         }
       ],
-      "explanation": "filter is a method used to conditionally create a new array"
+      "explanation": ""
     },
     {
-      "questionText": "How is a property accessible within a class?",
+      "questionText": "Which of the following fractions is between 0.2 and 0.3?",
       "options": [
         {
-          "text": "Using this.propertyName",
+          "text": "6/24",
           "correct": true
         },
         {
-          "text": "Accessors"
+          "text": "7/8"
         },
+
         {
-          "text": "Destructuring"
-        },
-        {
-          "text": "Arrow function"
+          "text": "1/3"
         }
       ],
-      "explanation": "this.propertyName is the way to access a specific property within a class"
+      "explanation": ""
     }
   ]
 }
